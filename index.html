@@ -218,6 +218,85 @@ h1 .grad{background:linear-gradient(90deg,#818CF8,#38BDF8,#34D399);-webkit-backg
 .ph-badge{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:100px;background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border);}
 
 /* ══════════ PROJECTS ══════════ */
+/* Featured "flashcard" project (used for CSDM Check) */
+.feat-proj{
+  position:relative;
+  border-radius:18px;
+  padding:2rem 2.2rem;
+  background:linear-gradient(135deg,rgba(99,102,241,0.16) 0%,rgba(124,58,237,0.14) 55%,rgba(56,189,248,0.10) 100%);
+  border:1.5px solid rgba(129,140,248,0.32);
+  box-shadow:0 12px 40px rgba(15,23,42,0.35),0 0 0 1px rgba(255,255,255,0.04) inset;
+  overflow:hidden;
+  margin-bottom:2.5rem;
+}
+.feat-proj::before{
+  content:'';position:absolute;top:-90px;right:-90px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(129,140,248,0.22) 0%,transparent 70%);pointer-events:none;
+}
+.feat-proj::after{
+  content:'';position:absolute;bottom:-110px;left:-80px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,189,248,0.18) 0%,transparent 70%);pointer-events:none;
+}
+.feat-proj > *{position:relative;z-index:1;}
+.feat-head{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.85rem;}
+.feat-badge{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);background:var(--violet-bg);border:1px solid var(--violet-border);border-radius:100px;padding:0.25rem 0.75rem;}
+.lang-pill{font-size:0.72rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:100px;background:rgba(56,189,248,0.18);color:var(--sky);border:1px solid var(--sky-border);display:inline-flex;align-items:center;gap:0.35rem;}
+.lang-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--sky);}
+.feat-proj h3{font-family:'Sora',sans-serif;font-size:1.45rem;font-weight:800;line-height:1.18;color:var(--text);margin-bottom:0.55rem;letter-spacing:-0.01em;}
+.feat-sub{font-size:0.96rem;color:var(--muted);line-height:1.7;font-weight:300;max-width:780px;margin-bottom:1.6rem;}
+.feat-sub strong{color:var(--text);font-weight:600;}
+
+/* Central asset management hierarchy flow */
+.hierarchy{margin:1.5rem 0;padding:1.25rem 1.4rem;border-radius:12px;background:rgba(0,0,0,0.22);border:1px solid var(--border);}
+.h-title{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:0.95rem;}
+.h-flow{display:flex;align-items:stretch;gap:0.55rem;flex-wrap:wrap;}
+.h-step{flex:1;min-width:115px;padding:0.7rem 0.75rem;border-radius:10px;text-align:center;border:1px solid var(--border);background:rgba(255,255,255,0.04);transition:transform 0.18s,border-color 0.18s;}
+.h-step:hover{transform:translateY(-2px);}
+.h-step .h-lvl{font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:800;letter-spacing:0.04em;margin-bottom:0.18rem;}
+.h-step .h-name{font-size:0.74rem;color:var(--muted);font-weight:600;}
+.h-step.l1{background:var(--indigo-bg);border-color:var(--indigo-border);} .h-step.l1 .h-lvl{color:var(--indigo);}
+.h-step.l2{background:var(--violet-bg);border-color:var(--violet-border);} .h-step.l2 .h-lvl{color:var(--violet);}
+.h-step.l3{background:var(--sky-bg);border-color:var(--sky-border);} .h-step.l3 .h-lvl{color:var(--sky);}
+.h-step.repo{background:var(--teal-bg);border-color:var(--teal-border);} .h-step.repo .h-lvl{color:var(--teal);}
+.h-step.proj{background:var(--emerald-bg);border-color:var(--emerald-border);} .h-step.proj .h-lvl{color:var(--emerald);}
+.h-arrow{display:flex;align-items:center;color:var(--dim);font-size:1rem;font-weight:700;padding:0 0.05rem;}
+
+/* Hierarchy examples */
+.h-examples{display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1.4rem;}
+.h-ex{display:flex;align-items:center;gap:0.85rem;padding:0.6rem 0.95rem;border-radius:10px;background:rgba(0,0,0,0.18);border:1px solid var(--border);font-size:0.85rem;color:var(--muted);flex-wrap:wrap;}
+.h-ex-lbl{font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:6px;flex-shrink:0;}
+.h-ex:nth-child(1) .h-ex-lbl{color:var(--violet);background:var(--violet-bg);border:1px solid var(--violet-border);}
+.h-ex:nth-child(2) .h-ex-lbl{color:var(--sky);background:var(--sky-bg);border:1px solid var(--sky-border);}
+.h-ex:nth-child(3) .h-ex-lbl{color:var(--emerald);background:var(--emerald-bg);border:1px solid var(--emerald-border);}
+.h-ex-id{font-family:'JetBrains Mono','SFMono-Regular',Menlo,monospace;font-size:0.82rem;font-weight:700;color:var(--text);background:rgba(255,255,255,0.06);padding:0.18rem 0.55rem;border-radius:6px;}
+.h-ex-desc{color:var(--muted);}
+.h-ex-desc code{font-family:'JetBrains Mono','SFMono-Regular',Menlo,monospace;font-size:0.78rem;color:var(--amber);background:rgba(217,119,6,0.12);padding:0.08rem 0.4rem;border-radius:4px;}
+
+.feat-actions{display:flex;gap:0.65rem;flex-wrap:wrap;margin-top:1.2rem;}
+.feat-actions .btn{padding:0.6rem 1.15rem;font-size:0.8rem;}
+
+/* Feature checklist grid */
+.feat-features{margin:1.4rem 0;}
+.feat-features-title{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:0.85rem;}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:0.7rem;}
+.feat-item{display:flex;align-items:flex-start;gap:0.7rem;padding:0.78rem 0.95rem;border-radius:10px;background:rgba(0,0,0,0.22);border:1px solid var(--border);transition:transform 0.15s,border-color 0.15s,background 0.15s;}
+.feat-item:hover{transform:translateY(-2px);border-color:var(--emerald-border);background:rgba(0,0,0,0.32);}
+.feat-check{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;margin-top:1px;background:linear-gradient(135deg,#10B981,#059669);box-shadow:0 0 0 2px rgba(5,150,105,0.18);}
+.feat-text{font-size:0.83rem;color:var(--muted);line-height:1.55;}
+.feat-text strong{display:block;color:var(--text);font-weight:700;font-size:0.86rem;margin-bottom:0.12rem;}
+.feat-text code{font-family:'JetBrains Mono','SFMono-Regular',Menlo,monospace;font-size:0.78rem;color:var(--amber);background:rgba(217,119,6,0.12);padding:0.05rem 0.36rem;border-radius:4px;}
+.feat-note{margin-top:0.95rem;padding:0.85rem 1rem;border-radius:10px;background:var(--violet-bg);border:1px solid var(--violet-border);font-size:0.84rem;color:var(--muted);display:flex;gap:0.65rem;align-items:flex-start;line-height:1.6;}
+.feat-note .ico{color:var(--violet);font-weight:700;flex-shrink:0;font-size:0.95rem;line-height:1.4;}
+.feat-note strong{color:var(--text);font-weight:700;}
+
+@media(max-width:720px){
+  .feat-proj{padding:1.5rem 1.4rem;}
+  .feat-proj h3{font-size:1.2rem;}
+  .h-flow{flex-direction:column;gap:0.45rem;}
+  .h-arrow{transform:rotate(90deg);justify-content:center;}
+  .h-step{min-width:0;}
+}
+
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;margin-top:0.5rem;}
 .proj-card{border-radius:16px;overflow:hidden;transition:transform 0.2s,border-color 0.2s;}
 .proj-card:hover{transform:translateY(-4px);border-color:var(--border2)!important;}
@@ -372,7 +451,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
       <div>
         <div class="hero-badge"><div class="hero-badge-dot"></div>Open to Senior Engineering Leadership Roles</div>
         <h1>Senior<br>Engineering<br><span class="grad">Leader.</span></h1>
-        <p class="hero-sub"><strong>Giridharan Rajendran</strong> — 20 years scaling world-class engineering teams across AI-agentic platforms, cloud infrastructure, DevSecOps, and Site Reliability Engineering. Pioneered T-Mobile's first AI developer platform on <strong>Anthropic's MCP</strong>.</p>
+        <p class="hero-sub"><strong>Giridharan Rajendran</strong> — 20 years scaling world-class engineering teams across AI-agentic platforms, cloud infrastructure, DevSecOps, and Site Reliability Engineering. Pioneered a major US carrier's first AI developer platform on <strong>Anthropic's MCP</strong>.</p>
         <div class="hero-tags">
           <span class="htag">AI &amp; GenAI</span><span class="htag">Platform Engineering</span><span class="htag">DevSecOps</span><span class="htag">SRE</span><span class="htag">Cloud Architecture</span><span class="htag">People Leadership</span>
         </div>
@@ -432,7 +511,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
     <div class="timeline">
       <div class="t-item fade-up">
         <div class="t-dot"></div>
-        <div class="t-header"><span class="t-company">T-Mobile USA</span><span class="t-period">Oct 2019 – Present</span></div>
+        <div class="t-header"><span class="t-company">Major US Carrier</span><span class="t-period">Oct 2019 – Present</span></div>
         <div class="t-role">Senior Engineering Leader — SRE, DevSecOps &amp; Platform Engineering</div>
         <ul>
           <li>Led and scaled a <strong>12-member SRE team</strong> supporting 40+ agile teams; improved satisfaction scores <strong>25% YoY</strong>.</li>
@@ -440,7 +519,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
         </ul>
         <div class="flagship">
           <div class="flagship-lbl">✦ Flagship Project — CDP Hub AI-Powered Platform Copilot</div>
-          <p>Pioneered T-Mobile's first AI-agentic developer platform on Anthropic's MCP — enabling autonomous delivery through natural language. 15+ REST APIs invoked by Claude, Cursor, and GPT-4o. <strong>Idea-to-deployment: days → minutes.</strong></p>
+          <p>Pioneered the carrier's first AI-agentic developer platform on Anthropic's MCP — enabling autonomous delivery through natural language. 15+ REST APIs invoked by Claude, Cursor, and GPT-4o. <strong>Idea-to-deployment: days → minutes.</strong></p>
           <div class="stack">Python · FastAPI · Anthropic MCP · Claude API · Azure OpenAI · ChromaDB · GitLab API · Next.js · Kubernetes</div>
         </div>
         <ul>
@@ -455,7 +534,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
         <div class="t-header"><span class="t-company">Accenture</span><span class="t-period">Sep 2010 – Oct 2019</span></div>
         <div class="t-role">Associate Manager, Software Engineering</div>
         <ul>
-          <li>Directed T-Mobile's Rebellion platform modernization; cut release cycles by <strong>70%</strong> through automation-first SRE.</li>
+          <li>Directed a major US carrier's enterprise platform modernization; cut release cycles by <strong>70%</strong> through automation-first SRE.</li>
           <li>Led a <strong>14-person cross-functional team</strong>; increased productivity 65% through Agile coaching.</li>
           <li>Maintained <strong>99.9% SLA</strong> across 52+ applications; boosted incident response by <strong>60%</strong>.</li>
         </ul>
@@ -479,13 +558,155 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
 <!-- ══ PROJECTS ══ -->
 <div id="projects" class="page">
   <div class="sec"><div class="container">
-    <div class="sec-hdr fade-up"><div class="sec-label teal">Projects</div><h2>Live <span>project demos</span></h2><p style="color:var(--muted);margin-top:0.4rem;font-size:0.93rem;">Real-world platforms and tools I've built. Replace demo links with your actual URLs.</p></div>
+    <div class="sec-hdr fade-up"><div class="sec-label teal">Projects</div><h2>Live <span>project demos</span></h2><p style="color:var(--muted);margin-top:0.4rem;font-size:0.93rem;">Real-world platforms and tools I've built across AI, DevSecOps, SRE, and compliance automation.</p></div>
+
+    <!-- ── Current project: DevOps Copilot — Hub ── -->
+    <div class="feat-proj fade-up">
+      <div class="feat-head">
+        <span class="feat-badge">★ Current Project</span>
+        <span class="chip ind">In Progress</span>
+        <span class="ph-badge">✏️ Details coming soon</span>
+      </div>
+      <h3>DevOps Copilot — Hub</h3>
+      <p class="feat-sub">
+        A unified <strong>AI-assisted DevOps platform</strong> that brings CI/CD insights, deployment automation, observability,
+        and compliance signals into a single intelligent workspace for engineering teams. Detailed overview, architecture,
+        and capabilities will be added shortly.
+      </p>
+    </div>
+
+    <!-- ── Project showcase: CSDM Check ── -->
+    <div class="feat-proj fade-up">
+      <div class="feat-head">
+        <span class="feat-badge">✦ Project Showcase</span>
+        <span class="lang-pill">Go</span>
+        <span class="chip tel">CLI</span>
+        <span class="chip ind">Asset Portfolio</span>
+      </div>
+      <h3>CSDM Check — Go Implementation</h3>
+      <p class="feat-sub">
+        A <strong>high-performance Go CLI</strong> that unifies enterprise Asset Portfolio queries, <strong>SOX / PCI / USCGI compliance scanning</strong>,
+        and <strong>GitLab security-policy validation</strong> across the entire SDLC hierarchy. Single-binary deployment, concurrent
+        API calls, 24-hour smart caching, multi-format output, and a modern <strong>web dashboard</strong> for compliance reporting.
+      </p>
+
+      <!-- Central asset management hierarchy visualization -->
+      <div class="hierarchy">
+        <div class="h-title">Central Asset Management — Application Hierarchy</div>
+        <div class="h-flow">
+          <div class="h-step l1"><div class="h-lvl">L1</div><div class="h-name">Application Family</div></div>
+          <span class="h-arrow">→</span>
+          <div class="h-step l2"><div class="h-lvl">L2</div><div class="h-name">Business Application</div></div>
+          <span class="h-arrow">→</span>
+          <div class="h-step l3"><div class="h-lvl">L3</div><div class="h-name">SDLC Component / DU</div></div>
+          <span class="h-arrow">→</span>
+          <div class="h-step repo"><div class="h-lvl">Code</div><div class="h-name">Repository</div></div>
+          <span class="h-arrow">→</span>
+          <div class="h-step proj"><div class="h-lvl">Project</div><div class="h-name">GitLab</div></div>
+        </div>
+      </div>
+
+      <!-- Illustrative examples (sanitized) -->
+      <div class="h-examples">
+        <div class="h-ex">
+          <span class="h-ex-lbl">L2</span>
+          <span class="h-ex-id">APMxxxxxxx</span>
+          <span class="h-ex-desc">Business Application — e.g. <em>customer-portal-services</em></span>
+        </div>
+        <div class="h-ex">
+          <span class="h-ex-lbl">L3</span>
+          <span class="h-ex-id">APMxxxxxxx</span>
+          <span class="h-ex-desc">SDLC Component / Deployable Unit — e.g. <em>approval-history-api</em> &nbsp;<code>csdm_type: "DU"</code></span>
+        </div>
+        <div class="h-ex">
+          <span class="h-ex-lbl">Project</span>
+          <span class="h-ex-desc">Source repositories linked back to their L3 components</span>
+        </div>
+      </div>
+
+      <!-- Feature checklist -->
+      <div class="feat-features">
+        <div class="feat-features-title">Key Capabilities</div>
+        <div class="feat-grid">
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Fast API Queries</strong>Direct filtering by asset identifier for instant lookups.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>SDLC Hierarchy</strong>Maps L2 → L3 SDLC components → Projects.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>SOX / PCI / USCGI Compliance</strong>Scan and report on compliance status with full L3 detail.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>GitLab Policy Checker</strong>Compare CSDM projects against GitLab security policies.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>GitLab Framework Auto-Apply</strong>Apply the right compliance framework to identified projects in GitLab.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Subgroup Support</strong>Recursively fetches projects from groups and subgroups with pagination.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Smart Caching</strong>24-hour TTL cache for dramatically improved performance.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Web Dashboard</strong>Modern browser UI for viewing compliance reports.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Multiple Output Formats</strong>JSON, CSV, and formatted ASCII tables.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Concurrent Processing</strong>Parallel API calls for faster bulk operations.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Progress Indicators</strong>Real-time progress bars for long-running operations.</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-check">✓</div>
+            <div class="feat-text"><strong>Type Safety</strong>Strongly typed Go structs for every API response.</div>
+          </div>
+        </div>
+        <div class="feat-note">
+          <span class="ico">✦</span>
+          <div>
+            <strong>Built for both app teams and auditors:</strong> after identifying SOX, PCI, and USCGI applications across the SDLC hierarchy, the tool applies the
+            appropriate <strong>GitLab compliance frameworks</strong> directly to the matching projects — giving application teams a one-click adoption path and
+            auditors a single source of truth for evidence.
+          </div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Go</span>
+        <span class="tag">CLI / single binary</span>
+        <span class="tag">Compliance Automation</span>
+        <span class="tag">SOX / PCI / USCGI</span>
+        <span class="tag">GitLab Security Policies</span>
+        <span class="tag">Web Dashboard</span>
+        <span class="tag">Concurrency</span>
+        <span class="tag">Smart Caching (24h TTL)</span>
+        <span class="tag">JSON · CSV · Tables</span>
+        <span class="tag">REST API</span>
+      </div>
+    </div>
+
     <div class="proj-grid">
       <div class="proj-card glass fade-up">
         <div class="proj-img bg1">🤖</div>
         <div class="proj-body">
           <h3>CDP Hub — AI Agentic Developer Platform</h3>
-          <p>T-Mobile's first AI-agentic developer platform on Anthropic's MCP. Autonomous idea-to-deployment through natural language.</p>
+          <p>A major US carrier's first AI-agentic developer platform on Anthropic's MCP. Autonomous idea-to-deployment through natural language.</p>
           <div class="tags"><span class="tag">Anthropic MCP</span><span class="tag">Claude API</span><span class="tag">FastAPI</span><span class="tag">Kubernetes</span></div>
         </div>
         <div class="proj-footer"><a href="#" class="proj-btn primary">Live Demo ↗</a><a href="#" class="proj-btn secondary">GitHub</a></div>
@@ -527,7 +748,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
   <div class="sec"><div class="container">
     <div class="sec-hdr fade-up"><div class="sec-label rose">Blog</div><h2>Articles &amp; <span>insights</span></h2><p style="color:var(--muted);margin-top:0.4rem;font-size:0.93rem;">Thoughts on AI, platform engineering, leadership, and DevSecOps.</p></div>
     <div class="card-grid">
-      <div class="card glass fade-up"><div class="card-band ind"></div><div class="card-body"><div class="card-meta"><span class="chip ind">AI / GenAI</span><span class="ph-badge">✏️ Placeholder</span></div><h3>Building T-Mobile's First AI-Agentic Developer Platform on Anthropic MCP</h3><p>How we reduced idea-to-deployment time from days to minutes using Claude, FastAPI, and Anthropic's Model Context Protocol.</p></div><div class="card-footer"><a href="#" class="card-link">Read article →</a></div></div>
+      <div class="card glass fade-up"><div class="card-band ind"></div><div class="card-body"><div class="card-meta"><span class="chip ind">AI / GenAI</span><span class="ph-badge">✏️ Placeholder</span></div><h3>Building a Major US Carrier's First AI-Agentic Developer Platform on Anthropic MCP</h3><p>How we reduced idea-to-deployment time from days to minutes using Claude, FastAPI, and Anthropic's Model Context Protocol.</p></div><div class="card-footer"><a href="#" class="card-link">Read article →</a></div></div>
       <div class="card glass fade-up"><div class="card-band tel"></div><div class="card-body"><div class="card-meta"><span class="chip tel">SRE</span><span class="ph-badge">✏️ Placeholder</span></div><h3>Scaling SRE Teams: Lessons from Leading 12 Engineers Across 40+ Agile Teams</h3><p>People management, headcount planning, and career development strategies that improved team satisfaction 25% YoY.</p></div><div class="card-footer"><a href="#" class="card-link">Read article →</a></div></div>
       <div class="card glass fade-up"><div class="card-band ros"></div><div class="card-body"><div class="card-meta"><span class="chip ros">DevSecOps</span><span class="ph-badge">✏️ Placeholder</span></div><h3>Zero Trust CI/CD: Improving Deployment Frequency 5× Without Sacrificing Security</h3><p>A deep dive into cloud-native GitLab pipelines with SAST/DAST, policy-as-code, and shift-left security practices.</p></div><div class="card-footer"><a href="#" class="card-link">Read article →</a></div></div>
       <div class="card glass fade-up"><div class="card-band amb"></div><div class="card-body"><div class="card-meta"><span class="chip amb">FinOps</span><span class="ph-badge">✏️ Placeholder</span></div><h3>$1.2M Saved: Our Cloud Cost Optimization Playbook for Enterprise Kubernetes</h3><p>FinOps strategies and capacity planning techniques we used to cut infrastructure costs 85% on 100+ Azure workloads.</p></div><div class="card-footer"><a href="#" class="card-link">Read article →</a></div></div>
@@ -543,10 +764,10 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
   <div class="sec"><div class="container">
     <div class="sec-hdr fade-up"><div class="sec-label amber">Talks</div><h2>Presentations &amp; <span>speaking</span></h2><p style="color:var(--muted);margin-top:0.4rem;font-size:0.93rem;">Conference talks, webinars, and presentations.</p></div>
     <div class="card-grid">
-      <div class="card glass fade-up"><div class="card-band ind"></div><div class="card-body"><div class="card-meta"><span class="chip ind">Conference</span><span class="card-date">2024</span><span class="ph-badge">✏️ Placeholder</span></div><h3>AI-Agentic Developer Platforms: From Concept to Production</h3><p>How we built T-Mobile's first AI-agentic platform using Anthropic MCP — enabling autonomous delivery at enterprise scale.</p></div><div class="card-footer"><a href="#" class="card-link">View slides →</a></div></div>
+      <div class="card glass fade-up"><div class="card-band ind"></div><div class="card-body"><div class="card-meta"><span class="chip ind">Conference</span><span class="card-date">2024</span><span class="ph-badge">✏️ Placeholder</span></div><h3>AI-Agentic Developer Platforms: From Concept to Production</h3><p>How we built a major US carrier's first AI-agentic platform using Anthropic MCP — enabling autonomous delivery at enterprise scale.</p></div><div class="card-footer"><a href="#" class="card-link">View slides →</a></div></div>
       <div class="card glass fade-up"><div class="card-band tel"></div><div class="card-body"><div class="card-meta"><span class="chip tel">Webinar</span><span class="card-date">2024</span><span class="ph-badge">✏️ Placeholder</span></div><h3>DevSecOps at Scale: Zero Trust Pipelines in a Multi-Cloud Enterprise</h3><p>Implementing SAST/DAST, policy-as-code, and shift-left security across 40+ agile teams without slowing delivery.</p></div><div class="card-footer"><a href="#" class="card-link">Watch recording →</a></div></div>
       <div class="card glass fade-up"><div class="card-band amb"></div><div class="card-body"><div class="card-meta"><span class="chip amb">Meetup</span><span class="card-date">2023</span><span class="ph-badge">✏️ Placeholder</span></div><h3>FinOps in Practice: $1.2M Cloud Savings on Azure Kubernetes Workloads</h3><p>Real-world FinOps strategies for enterprise cloud cost optimization — capacity planning, rightsizing, and governance.</p></div><div class="card-footer"><a href="#" class="card-link">View slides →</a></div></div>
-      <div class="card glass fade-up"><div class="card-band eme"></div><div class="card-body"><div class="card-meta"><span class="chip eme">Internal</span><span class="card-date">2023</span><span class="ph-badge">✏️ Placeholder</span></div><h3>Building Engineering Culture: Servant Leadership at T-Mobile</h3><p>People-first leadership frameworks for scaling engineering teams — from hiring and performance management to succession planning.</p></div><div class="card-footer"><a href="#" class="card-link">View recording →</a></div></div>
+      <div class="card glass fade-up"><div class="card-band eme"></div><div class="card-body"><div class="card-meta"><span class="chip eme">Internal</span><span class="card-date">2023</span><span class="ph-badge">✏️ Placeholder</span></div><h3>Building Engineering Culture: Servant Leadership at a Major US Carrier</h3><p>People-first leadership frameworks for scaling engineering teams — from hiring and performance management to succession planning.</p></div><div class="card-footer"><a href="#" class="card-link">View recording →</a></div></div>
     </div>
     <div class="tip-box"><p>✏️ Replace talk titles, dates, and <code>href="#"</code> with your real conference talks, webinars, or presentation links.</p></div>
   </div></div>
@@ -574,12 +795,12 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
   <div class="sec"><div class="container">
     <div class="sec-hdr fade-up"><div class="sec-label pink">Achievements</div><h2>Awards &amp; <span>recognition</span></h2><p style="color:var(--muted);margin-top:0.4rem;font-size:0.93rem;">Key milestones and recognition throughout my career.</p></div>
     <div class="achieve-grid">
-      <div class="achieve-card glass fade-up"><span class="achieve-icon">🏆</span><h3>AI Innovation Pioneer Award</h3><p>Recognized for pioneering T-Mobile's first AI-agentic developer platform on Anthropic MCP — transforming developer experience company-wide.</p><div class="year">T-Mobile · 2024 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
-      <div class="achieve-card glass fade-up"><span class="achieve-icon">💰</span><h3>$1.2M Cost Optimization Achievement</h3><p>Led cloud migration and FinOps initiative saving $1.2M+ annually — recognized by engineering leadership for measurable business impact.</p><div class="year">T-Mobile · 2023 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
-      <div class="achieve-card glass fade-up"><span class="achieve-icon">🚀</span><h3>Engineering Excellence Award</h3><p>Awarded for 5× deployment frequency improvement and 99.9% uptime achievement across mission-critical customer-facing systems.</p><div class="year">T-Mobile · 2023 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
-      <div class="achieve-card glass fade-up"><span class="achieve-icon">👥</span><h3>People Leader of the Year</h3><p>Recognized for driving 25% YoY improvement in team satisfaction scores and developing multiple engineers into leadership-ready roles.</p><div class="year">T-Mobile · 2022 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
-      <div class="achieve-card glass fade-up"><span class="achieve-icon">🔒</span><h3>Security Champion Recognition</h3><p>Honored for championing zero trust security, SOX compliance automation, and shift-left DevSecOps practices across engineering.</p><div class="year">T-Mobile · 2022 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
-      <div class="achieve-card glass fade-up"><span class="achieve-icon">⭐</span><h3>Delivery Excellence Award</h3><p>Accenture recognition for leading T-Mobile's Rebellion platform modernization — cutting release cycles 70% through automation-first SRE.</p><div class="year">Accenture · 2018 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
+      <div class="achieve-card glass fade-up"><span class="achieve-icon">🏆</span><h3>AI Innovation Pioneer Award</h3><p>Recognized for pioneering a major US carrier's first AI-agentic developer platform on Anthropic MCP — transforming developer experience company-wide.</p><div class="year">Major US Carrier · 2024 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
+      <div class="achieve-card glass fade-up"><span class="achieve-icon">💰</span><h3>$1.2M Cost Optimization Achievement</h3><p>Led cloud migration and FinOps initiative saving $1.2M+ annually — recognized by engineering leadership for measurable business impact.</p><div class="year">Major US Carrier · 2023 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
+      <div class="achieve-card glass fade-up"><span class="achieve-icon">🚀</span><h3>Engineering Excellence Award</h3><p>Awarded for 5× deployment frequency improvement and 99.9% uptime achievement across mission-critical customer-facing systems.</p><div class="year">Major US Carrier · 2023 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
+      <div class="achieve-card glass fade-up"><span class="achieve-icon">👥</span><h3>People Leader of the Year</h3><p>Recognized for driving 25% YoY improvement in team satisfaction scores and developing multiple engineers into leadership-ready roles.</p><div class="year">Major US Carrier · 2022 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
+      <div class="achieve-card glass fade-up"><span class="achieve-icon">🔒</span><h3>Security Champion Recognition</h3><p>Honored for championing zero trust security, SOX compliance automation, and shift-left DevSecOps practices across engineering.</p><div class="year">Major US Carrier · 2022 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
+      <div class="achieve-card glass fade-up"><span class="achieve-icon">⭐</span><h3>Delivery Excellence Award</h3><p>Accenture recognition for leading a major US carrier's enterprise platform modernization — cutting release cycles 70% through automation-first SRE.</p><div class="year">Accenture · 2018 <span class="ph-badge" style="margin-left:0.4rem;">✏️ Placeholder</span></div></div>
     </div>
     <div class="tip-box"><p>✏️ Replace award names, descriptions, companies, and years with your real achievements and recognition.</p></div>
   </div></div>
