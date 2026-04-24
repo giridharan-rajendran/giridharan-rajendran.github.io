@@ -387,6 +387,9 @@ h1 .grad{background:linear-gradient(90deg,#818CF8,#38BDF8,#34D399);-webkit-backg
 .booking-card h3{font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.4rem;color:var(--text);}
 .booking-card p{font-size:0.84rem;color:var(--muted);margin-bottom:1.2rem;font-weight:300;}
 .success-msg{display:none;background:var(--emerald-bg);border:1px solid var(--emerald-border);border-radius:10px;padding:0.9rem;margin-top:0.9rem;text-align:center;color:var(--emerald);font-weight:600;font-size:0.88rem;}
+.error-msg{display:none;background:var(--rose-bg);border:1px solid var(--rose-border);border-radius:10px;padding:0.9rem;margin-top:0.9rem;text-align:center;color:var(--rose);font-weight:600;font-size:0.88rem;}
+.submit-btn:disabled{opacity:0.7;cursor:not-allowed;transform:none;}
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;}
 .hint{font-size:0.76rem;color:var(--dim);margin-top:0.65rem;}
 .hint a{color:var(--indigo);}
 
@@ -839,15 +842,33 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
     <div class="contact-grid">
       <div class="fade-up">
         <p style="color:var(--muted);margin-bottom:1.8rem;font-size:0.95rem;font-weight:300;">Have a leadership opportunity, collaboration idea, or just want to connect? Send me a message and I'll get back to you within 24 hours.</p>
-        <div class="form-group"><label>Your Name</label><input type="text" placeholder="John Smith"></div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@company.com"></div>
-        <div class="form-group"><label>Subject</label>
-          <select><option>Leadership opportunity</option><option>Collaboration / Partnership</option><option>Speaking invitation</option><option>Technical consultation</option><option>Just saying hello</option></select>
-        </div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project, opportunity, or question..."></textarea></div>
-        <button class="submit-btn" onclick="handleSubmit()">Send Message ✉️</button>
-        <div class="success-msg" id="successMsg">✅ Message sent! I'll get back to you within 24 hours.</div>
-        <p class="hint">💡 To make this form send real emails, sign up free at <a href="https://formspree.io" target="_blank">formspree.io</a> and add your endpoint to the form action.</p>
+
+        <!-- Formspree-powered contact form -->
+        <form id="contactForm" action="https://formspree.io/f/mbdqwojr" method="POST" onsubmit="return handleSubmit(event)">
+          <!-- Formspree config -->
+          <input type="hidden" name="_subject" value="New message from your portfolio site">
+
+          <!-- Honeypot (bots fill this; humans don't see it) -->
+          <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+
+          <div class="form-group"><label for="cf-name">Your Name</label><input id="cf-name" name="name" type="text" placeholder="John Smith" required></div>
+          <div class="form-group"><label for="cf-email">Email Address</label><input id="cf-email" name="email" type="email" placeholder="john@company.com" required></div>
+          <div class="form-group"><label for="cf-subject">Subject</label>
+            <select id="cf-subject" name="inquiry_type">
+              <option>Leadership opportunity</option>
+              <option>Collaboration / Partnership</option>
+              <option>Speaking invitation</option>
+              <option>Technical consultation</option>
+              <option>Just saying hello</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="cf-message">Message</label><textarea id="cf-message" name="message" placeholder="Tell me about your project, opportunity, or question..." required></textarea></div>
+
+          <button type="submit" id="cf-submit" class="submit-btn">Send Message ✉️</button>
+          <div class="success-msg" id="successMsg">✅ Message sent! I'll get back to you within 24 hours.</div>
+          <div class="error-msg" id="errorMsg">⚠️ Something went wrong. Please email me directly at <a href="mailto:mr.giridharan.rajendran@gmail.com" style="color:inherit;text-decoration:underline;">mr.giridharan.rajendran@gmail.com</a>.</div>
+        </form>
+        <p class="hint">🔒 Powered by <a href="https://formspree.io" target="_blank">Formspree</a>. Messages are emailed directly to me — nothing is stored on this site.</p>
       </div>
       <div class="contact-info fade-up">
         <div class="booking-card">
@@ -914,10 +935,48 @@ function initFade() {
   document.querySelectorAll('.fade-up:not(.visible)').forEach(el => obs.observe(el));
 }
 
-function handleSubmit() {
-  const msg = document.getElementById('successMsg');
-  msg.style.display = 'block';
-  setTimeout(() => msg.style.display = 'none', 5000);
+async function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const btn = document.getElementById('cf-submit');
+  const successMsg = document.getElementById('successMsg');
+  const errorMsg = document.getElementById('errorMsg');
+
+  successMsg.style.display = 'none';
+  errorMsg.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const formData = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      successMsg.style.display = 'block';
+      form.reset();
+      btn.textContent = 'Sent ✓';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send Message ✉️';
+        successMsg.style.display = 'none';
+      }, 6000);
+    } else {
+      const data = await res.json().catch(() => ({}));
+      const errText = (data.errors && data.errors.map(e => e.message).join(', ')) || 'Submission failed';
+      throw new Error(errText);
+    }
+  } catch (err) {
+    console.error('Contact form error:', err);
+    errorMsg.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Send Message ✉️';
+  }
+
+  return false;
 }
 
 initFade();
