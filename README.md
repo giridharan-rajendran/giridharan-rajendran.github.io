@@ -26,10 +26,12 @@ Design highlights:
 giridharan-rajendran.github.io/
 ├── README.md                        ← this file
 ├── index.html                       ← entire site (HTML + inline CSS + inline JS)
-└── giridharan-rajendran-resume.pdf  ← downloadable resume (linked from nav, hero, and contact)
+├── giridharan-rajendran-resume.pdf  ← downloadable resume (linked from nav, hero, and contact)
+└── assets/
+    └── profile.png                  ← profile photo (used in hero, About, og:image, JSON-LD)
 ```
 
-That's it. One HTML file, one PDF. No build step, no package manager, no framework.
+One HTML file, one PDF, one image. No build step, no package manager, no framework.
 
 ---
 
@@ -170,6 +172,8 @@ git push origin cursor          # push to current branch
 
 ### May 2026 — Resume alignment & professional polish
 
+- **Profile photo** — added a circular gradient-ringed headshot (`assets/profile.png`, 116 KB) to the Home hero (right column, above stats stack with a pulsing "Open to opportunities" status pill) and the About page (centered above the contact card). Photo also wired into `og:image`, `twitter:image`, and JSON-LD `Person.image` so LinkedIn / Slack / Google rich results all use it.
+- **"First" claim removed** — re-worded all 7 site references to T-Mobile's AI-agentic developer platform from "Pioneered T-Mobile's first..." to "**Built one of T-Mobile's**..." / "**Built an AI-agentic developer platform at T-Mobile**" so the messaging stays accurate (T-Mobile has many AI initiatives).
 - **SEO + favicon** — added `meta description`, Open Graph + Twitter Card tags, JSON-LD `Person` structured data, and an inline-SVG `GR` gradient favicon.
 - **Resume PDF** — copied `giridharan-rajendran-resume.pdf` into the repo so all 4 download buttons (nav / hero / about / contact) actually work.
 - **T-Mobile naming** — site now uses the real employer name (matches résumé and LinkedIn) instead of "a major US carrier" anonymization. Internal product code-names other than what's already on the résumé remain redacted.
