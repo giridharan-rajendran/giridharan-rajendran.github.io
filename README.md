@@ -26,7 +26,7 @@ Design highlights:
 giridharan-rajendran.github.io/
 ├── README.md                        ← this file
 ├── index.html                       ← entire site (HTML + inline CSS + inline JS)
-└── giridharan-rajendran-resume.pdf  ← downloadable resume (linked from Contact page)
+└── giridharan-rajendran-resume.pdf  ← downloadable resume (linked from nav, hero, and contact)
 ```
 
 That's it. One HTML file, one PDF. No build step, no package manager, no framework.
@@ -35,20 +35,21 @@ That's it. One HTML file, one PDF. No build step, no package manager, no framewo
 
 ## Pages / Tabs
 
-The SPA exposes ten tabbed sections, each rendered as a `<div class="page">` inside `index.html`:
+The SPA exposes seven tabbed sections, each rendered as a `<div class="page">` inside `index.html`:
 
-| Tab          | `id`           | Contents                                                              |
-| ------------ | -------------- | --------------------------------------------------------------------- |
-| Home         | `home`         | Hero banner, skills snapshot, headline stats                          |
-| About        | `about`        | Bio, leadership philosophy, what-I-do                                 |
-| Experience   | `experience`   | Career timeline with role highlights                                  |
-| Projects     | `projects`     | Project showcase cards (CSDM Check, DevOps Copilot — Hub, etc.)       |
-| Blog         | `blog`         | Article previews                                                      |
-| Talks        | `talks`        | Speaking engagements / conference talks                               |
-| OSS          | `oss`          | Open-source contributions                                             |
-| Achievements | `achievements` | Awards, recognitions, milestones                                      |
-| Education    | `education`    | Degrees, certifications, continuous learning                          |
-| Contact      | `contact`      | Live contact form (Formspree-powered) + booking + direct contact info |
+| Tab          | `id`           | Contents                                                                  |
+| ------------ | -------------- | ------------------------------------------------------------------------- |
+| Home         | `home`         | Hero banner, stats stack, MBA-in-progress callout, location signal        |
+| About        | `about`        | Bio, leadership philosophy, Core Skills + Leadership Competencies bands   |
+| Experience   | `experience`   | Full 5-role career timeline back to 2006                                  |
+| Projects     | `projects`     | Featured flashcards (DevOps Copilot Hub, CSDM Check) + 4 enterprise inits |
+| Achievements | `achievements` | 8 measurable career-impact cards drawn directly from the résumé           |
+| Education    | `education`    | Degrees + certifications (MBA, PG Cloud, B.E., RHCE, SAFe, etc.)          |
+| Contact      | `contact`      | Live Formspree contact form + direct contact info + resume download       |
+
+> Blog, Talks, and Open Source pages were intentionally removed — they previously contained
+> placeholder content. They can be re-added in the future once real articles, talks, or
+> public repos exist to back them up.
 
 Tab switching is handled by the `showPage(id)` function (see the inline `<script>` at the bottom of `index.html`).
 
@@ -165,12 +166,27 @@ git push origin cursor          # push to current branch
 
 ---
 
-## Recent Changes (April 2026)
+## Recent Changes
+
+### May 2026 — Resume alignment & professional polish
+
+- **SEO + favicon** — added `meta description`, Open Graph + Twitter Card tags, JSON-LD `Person` structured data, and an inline-SVG `GR` gradient favicon.
+- **Resume PDF** — copied `giridharan-rajendran-resume.pdf` into the repo so all 4 download buttons (nav / hero / about / contact) actually work.
+- **T-Mobile naming** — site now uses the real employer name (matches résumé and LinkedIn) instead of "a major US carrier" anonymization. Internal product code-names other than what's already on the résumé remain redacted.
+- **Removed placeholder sections** — Blog, Talks, and Open Source tabs deleted (they had no real backing content). The site now only shows what's verifiable from the résumé.
+- **LASON India experience** — added the missing 5th role (May 2006 – Sep 2007) to complete the career timeline.
+- **About page** — added a 16-keyword **Leadership Competencies** band drawn from the résumé Core Competencies section (helps recruiters' ATS scans).
+- **Home hero** — surfaced **MBA in Progress · Expected 2026** + location/remote-friendly signal.
+- **Achievements page** — replaced 6 fabricated awards with 8 real, audited career-impact metric cards drawn straight from the résumé ($1.2M+ saved, 5× deploys, 99.9% uptime, 45% MTTR cut, 800+ hours saved, 25% YoY satisfaction lift, 75% faster reporting, 70% release-cycle reduction).
+- **Projects page** — added a clear "Enterprise Initiatives" section header above the 4 internal-T-Mobile project cards. Replaced fake "Live Demo / GitHub" buttons with **measurable-outcome metric chips** + an **"Internal · T-Mobile"** badge so it's clear those systems are proprietary.
+- **Calendly booking card** — removed (will be re-added when a personal Calendly account exists).
+
+### April 2026 — Initial build
 
 - **Site architecture** — converted to a single-page tabbed SPA with all CSS / JS inlined in `index.html`.
 - **Project showcase** — added "CSDM Check — Go Implementation" with a detailed flashcard layout (capability hierarchy, illustrative examples, key-capabilities checklist, tags).
 - **Current project placeholder** — added "DevOps Copilot — Hub" card (details to be filled in later).
-- **Data sanitization** — removed corporate names, internal product code-names, internal system names, and real APM IDs throughout the site. Replaced with generic public-facing equivalents.
+- **Data sanitization (CSDM Check)** — removed internal product code-names (e.g. central asset management system instead of MAIA), real APM IDs, and other internal compliance-tooling identifiers from the CSDM Check showcase since these are not on the résumé.
 - **Contact form** — wired to Formspree (`https://formspree.io/f/mbdqwojr`) with AJAX submission, honeypot, inline success/error states, and mailto fallback.
 
 ---
