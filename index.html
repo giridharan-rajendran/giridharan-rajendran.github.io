@@ -6,7 +6,7 @@
 <title>Giridharan Rajendran — Senior Engineering Leader | DevSecOps · SRE · AI Platforms</title>
 
 <!-- ── SEO ── -->
-<meta name="description" content="Senior Engineering Leader with 20 years scaling global teams across AI-agentic platforms, DevSecOps, SRE, and multi-cloud architecture. Built an AI-agentic developer platform at T-Mobile on Anthropic's MCP. $1.2M+ saved · 5× deploys · 99.9% uptime.">
+<meta name="description" content="Senior Engineering Leader with 20 years scaling global teams across AI-agentic platforms, DevSecOps, SRE, and multi-cloud architecture. Built T-Mobile's first AI-agentic developer platform on Anthropic's MCP. $1.2M+ saved · 5× deploys · 99.9% uptime.">
 <meta name="author" content="Giridharan Rajendran">
 <meta name="keywords" content="Engineering Leader, Engineering Manager, Director of Engineering, DevSecOps, SRE, Site Reliability Engineering, Platform Engineering, AI Agentic, Anthropic MCP, Claude API, Generative AI, Kubernetes, Terraform, AWS, Azure, GCP, T-Mobile, Cloud Architecture, FinOps, Zero Trust, CI/CD, GitLab">
 <link rel="canonical" href="https://giridharan-rajendran.github.io/">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://giridharan-rajendran.github.io/">
 <meta property="og:title" content="Giridharan Rajendran — Senior Engineering Leader">
-<meta property="og:description" content="20 years scaling world-class engineering teams across AI-agentic platforms, DevSecOps, SRE, and cloud infrastructure. Built an AI-agentic developer platform at T-Mobile on Anthropic's MCP.">
+<meta property="og:description" content="20 years scaling world-class engineering teams across AI-agentic platforms, DevSecOps, SRE, and cloud infrastructure. Built T-Mobile's first AI-agentic developer platform on Anthropic's MCP.">
 <meta property="og:site_name" content="Giridharan Rajendran">
 <meta property="og:image" content="https://giridharan-rajendran.github.io/assets/profile.png">
 <meta property="og:image:alt" content="Giridharan Rajendran — Senior Engineering Leader">
@@ -515,9 +515,41 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
   .edu-grid{grid-template-columns:1fr;}
   .sec{padding:3.5rem 0;}
 }
+
+/* ══════════ AVAILABILITY BANNER ══════════ */
+:root{--banner-h:38px;}
+#avail-banner{position:fixed;top:0;left:0;right:0;z-index:250;background:linear-gradient(90deg,rgba(5,150,105,0.16),rgba(13,148,136,0.10));border-bottom:1px solid rgba(52,211,153,0.25);backdrop-filter:blur(12px);height:var(--banner-h);display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.78rem;font-weight:600;color:var(--emerald);padding:0 1rem;}
+#avail-banner-close{background:none;border:none;cursor:pointer;color:var(--dim);font-size:0.88rem;padding:0.15rem 0.45rem;border-radius:4px;transition:color 0.2s;margin-left:0.75rem;line-height:1;font-family:'Nunito Sans',sans-serif;}
+#avail-banner-close:hover{color:var(--text);background:rgba(255,255,255,0.08);}
+body.banner-visible nav{top:var(--banner-h);}
+body.banner-visible .page{padding-top:calc(64px + var(--banner-h));}
+body.banner-visible .mobile-nav{top:calc(64px + var(--banner-h));}
+
+/* ══════════ RECOMMENDATIONS ══════════ */
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;margin-top:0.5rem;}
+.rec-card{padding:1.8rem 1.6rem;border-radius:16px;position:relative;transition:transform 0.2s;}
+.rec-card:hover{transform:translateY(-3px);}
+.rec-quote{font-size:2.8rem;line-height:0.9;color:var(--indigo);opacity:0.45;font-family:'Sora',sans-serif;font-weight:800;display:block;margin-bottom:0.6rem;}
+.rec-text{font-size:0.9rem;color:var(--muted);line-height:1.8;font-style:italic;font-weight:300;margin-bottom:1.25rem;}
+.rec-divider{height:1px;background:var(--border);margin-bottom:1rem;}
+.rec-author{display:flex;align-items:center;gap:0.75rem;}
+.rec-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;border:2px solid var(--border);}
+.rec-card:nth-child(1) .rec-avatar{background:var(--indigo-bg);border-color:var(--indigo-border);}
+.rec-card:nth-child(2) .rec-avatar{background:var(--teal-bg);border-color:var(--teal-border);}
+.rec-card:nth-child(3) .rec-avatar{background:var(--violet-bg);border-color:var(--violet-border);}
+.rec-name{font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--text);line-height:1.2;}
+.rec-title{font-size:0.76rem;color:var(--muted);}
+.rec-company{font-size:0.72rem;color:var(--dim);margin-top:0.05rem;}
+.rec-placeholder{display:inline;background:rgba(255,255,255,0.05);border:1px dashed rgba(255,255,255,0.2);border-radius:4px;padding:0.1rem 0.45rem;font-style:normal;font-size:0.82rem;color:var(--dim);font-weight:600;}
 </style>
 </head>
 <body>
+
+<!-- AVAILABILITY BANNER -->
+<div id="avail-banner">
+  <span>🟢 <strong>Open to Work</strong> — Engineering Manager · Director of Engineering · Remote / Hybrid</span>
+  <button id="avail-banner-close" onclick="dismissBanner()" aria-label="Dismiss banner">✕</button>
+</div>
 
 <div id="progress-bar"></div>
 
@@ -532,6 +564,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
       <button class="nav-tab" onclick="showPage('experience')">Experience</button>
       <button class="nav-tab" onclick="showPage('projects')">Projects</button>
       <button class="nav-tab" onclick="showPage('achievements')">Achievements</button>
+      <button class="nav-tab" onclick="showPage('recommendations')">Kudos</button>
       <button class="nav-tab" onclick="showPage('education')">Education</button>
       <button class="nav-tab" onclick="showPage('contact')">Contact</button>
     </div>
@@ -550,6 +583,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
   <button class="nav-tab" onclick="showPage('experience');toggleMobileNav()">Experience</button>
   <button class="nav-tab" onclick="showPage('projects');toggleMobileNav()">Projects</button>
   <button class="nav-tab" onclick="showPage('achievements');toggleMobileNav()">Achievements</button>
+  <button class="nav-tab" onclick="showPage('recommendations');toggleMobileNav()">Kudos</button>
   <button class="nav-tab" onclick="showPage('education');toggleMobileNav()">Education</button>
   <button class="nav-tab" onclick="showPage('contact');toggleMobileNav()">Contact</button>
 </div>
@@ -560,13 +594,14 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
     <div class="hero-inner">
       <div>
 <h1>Senior<br>Engineering<br><span class="grad" id="typed-role">Leader.</span><span class="typed-cursor"></span></h1>
-        <p class="hero-sub"><strong>Giridharan Rajendran</strong> — 20 years scaling world-class engineering teams across AI-agentic platforms, cloud infrastructure, DevSecOps, and Site Reliability Engineering. Built <strong>one of T-Mobile's</strong> AI-agentic developer platforms on <strong>Anthropic's MCP</strong>.</p>
+        <p class="hero-sub"><strong>Giridharan Rajendran</strong> — 20 years scaling world-class engineering teams across AI-agentic platforms, cloud infrastructure, DevSecOps, and Site Reliability Engineering. Built <strong>T-Mobile's first</strong> AI-agentic developer platform on <strong>Anthropic's MCP</strong>.</p>
         <div class="hero-tags">
           <span class="htag">AI &amp; GenAI</span><span class="htag">Platform Engineering</span><span class="htag">DevSecOps</span><span class="htag">SRE</span><span class="htag">Cloud Architecture</span><span class="htag">People Leadership</span>
         </div>
         <div class="hero-meta">
           <span class="hero-meta-item">🎓 <strong>MBA in Progress</strong> · University of Phoenix · Expected Dec 2026</span>
           <span class="hero-meta-item">📍 Everett, WA · Open to Remote / Hybrid</span>
+          <span class="hero-meta-item">🎯 <strong>Open to:</strong> Engineering Manager · Director of Engineering · VP Engineering</span>
         </div>
         <div class="btn-group">
           <button class="btn btn-primary" onclick="showPage('about')">About Me ↓</button>
@@ -630,7 +665,10 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
       </div>
       <div class="fade-up">
         <div class="profile-frame lg" style="margin:0 auto 1.6rem;">
-          <img src="assets/profile.png" alt="Giridharan Rajendran" class="profile-img" loading="lazy" width="260" height="260">
+          <picture>
+            <source srcset="assets/profile.webp" type="image/webp">
+            <img src="assets/profile.png" alt="Giridharan Rajendran" class="profile-img" loading="lazy" width="260" height="260">
+          </picture>
         </div>
         <div class="glass contact-card">
           <h3>Contact</h3>
@@ -781,7 +819,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
       </div>
       <h3>CSDM Check — Go Implementation</h3>
       <p class="feat-sub">
-        A <strong>high-performance Go CLI</strong> that unifies enterprise Asset Portfolio queries, <strong>SOX / PCI / USCGI compliance scanning</strong>,
+        Built and shipped while leading a <strong>12-member SRE engineering team at T-Mobile</strong>. A <strong>high-performance Go CLI</strong> that unifies enterprise Asset Portfolio queries, <strong>SOX / PCI / USCGI compliance scanning</strong>,
         and <strong>GitLab security-policy validation</strong> across the entire SDLC hierarchy. Single-binary deployment, concurrent
         API calls, 24-hour smart caching, multi-format output, and a modern <strong>web dashboard</strong> for compliance reporting.
       </p>
@@ -918,7 +956,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
       <div class="achieve-card glass fade-up">
         <span class="achieve-icon">🤖</span>
         <h3>Built an AI-Agentic Developer Platform at T-Mobile</h3>
-        <p>Designed and delivered <strong>CDP Hub</strong> — one of T-Mobile's AI-agentic developer platforms — on Anthropic's Model Context Protocol (MCP). Exposes 15+ REST API capabilities (CI/CD telemetry, RAG-powered docs, GitLab automation) invoked autonomously by Claude, Cursor, and GPT-4o. <strong>Reduced idea-to-deployment from days to minutes.</strong></p>
+        <p>Designed and delivered <strong>CDP Hub</strong> — T-Mobile's first AI-agentic developer platform — on Anthropic's Model Context Protocol (MCP). Exposes 15+ REST API capabilities (CI/CD telemetry, RAG-powered docs, GitLab automation) invoked autonomously by Claude, Cursor, and GPT-4o. <strong>Reduced idea-to-deployment from days to minutes.</strong></p>
         <div class="year">T-Mobile · Flagship Innovation · 2024</div>
       </div>
       <div class="achieve-card glass fade-up">
@@ -964,6 +1002,55 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
         <div class="year">Accenture · 2010 – 2019</div>
       </div>
     </div>
+  </div></div>
+</div>
+
+<!-- ══ RECOMMENDATIONS ══ -->
+<div id="recommendations" class="page">
+  <div class="sec"><div class="container">
+    <div class="sec-hdr fade-up"><div class="sec-label emerald">Recommendations</div><h2>What colleagues <span>say</span></h2><p style="color:var(--muted);margin-top:0.4rem;font-size:0.93rem;">Peer and leader feedback from 20 years of engineering leadership.</p></div>
+    <div class="rec-grid">
+      <div class="rec-card glass fade-up">
+        <span class="rec-quote">"</span>
+        <p class="rec-text"><span class="rec-placeholder">Replace with a LinkedIn recommendation or direct quote from a colleague, manager, or stakeholder.</span></p>
+        <div class="rec-divider"></div>
+        <div class="rec-author">
+          <div class="rec-avatar">👤</div>
+          <div>
+            <div class="rec-name"><span class="rec-placeholder">Full Name</span></div>
+            <div class="rec-title"><span class="rec-placeholder">Title / Role</span></div>
+            <div class="rec-company"><span class="rec-placeholder">Company</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rec-card glass fade-up">
+        <span class="rec-quote">"</span>
+        <p class="rec-text"><span class="rec-placeholder">Replace with a LinkedIn recommendation or direct quote from a colleague, manager, or stakeholder.</span></p>
+        <div class="rec-divider"></div>
+        <div class="rec-author">
+          <div class="rec-avatar">👤</div>
+          <div>
+            <div class="rec-name"><span class="rec-placeholder">Full Name</span></div>
+            <div class="rec-title"><span class="rec-placeholder">Title / Role</span></div>
+            <div class="rec-company"><span class="rec-placeholder">Company</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rec-card glass fade-up">
+        <span class="rec-quote">"</span>
+        <p class="rec-text"><span class="rec-placeholder">Replace with a LinkedIn recommendation or direct quote from a colleague, manager, or stakeholder.</span></p>
+        <div class="rec-divider"></div>
+        <div class="rec-author">
+          <div class="rec-avatar">👤</div>
+          <div>
+            <div class="rec-name"><span class="rec-placeholder">Full Name</span></div>
+            <div class="rec-title"><span class="rec-placeholder">Title / Role</span></div>
+            <div class="rec-company"><span class="rec-placeholder">Company</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="color:var(--dim);font-size:0.78rem;margin-top:1.5rem;text-align:center;">Full LinkedIn recommendations at <a href="https://linkedin.com/in/giridharan-rajendran" target="_blank" rel="noopener noreferrer" style="color:var(--indigo);">linkedin.com/in/giridharan-rajendran</a></p>
   </div></div>
 </div>
 
@@ -1020,9 +1107,13 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
 
           <button type="submit" id="cf-submit" class="submit-btn">Send Message ✉️</button>
           <div class="success-msg" id="successMsg">✅ Message sent! I'll get back to you within 24 hours.</div>
-          <div class="error-msg" id="errorMsg">⚠️ Something went wrong. Please email me directly at <a href="mailto:mr.giridharan.rajendran@gmail.com" style="color:inherit;text-decoration:underline;">mr.giridharan.rajendran@gmail.com</a>.</div>
+          <div class="error-msg" id="errorMsg">⚠️ Something went wrong. Use the direct email link below.</div>
         </form>
         <p class="hint">🔒 Powered by <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">Formspree</a>. Messages are emailed directly to me — nothing is stored on this site.</p>
+        <div style="margin-top:1rem;padding:0.9rem 1.1rem;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;">
+          <span style="font-size:0.82rem;color:var(--muted);">Prefer email directly?</span>
+          <a href="mailto:mr.giridharan.rajendran@gmail.com" class="btn btn-ghost" style="padding:0.5rem 1rem;font-size:0.8rem;">✉️ mr.giridharan.rajendran@gmail.com</a>
+        </div>
       </div>
       <div class="contact-info fade-up">
         <div class="glass contact-card">
@@ -1064,7 +1155,7 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
 <button id="back-to-top" aria-label="Scroll to top" title="Back to top" onclick="scrollToTop()">↑</button>
 
 <script>
-const pageOrder = ['home','about','skills','experience','projects','achievements','education','contact'];
+const pageOrder = ['home','about','skills','experience','projects','achievements','recommendations','education','contact'];
 
 // ── Hash routing ──
 function getHashPage() {
@@ -1235,9 +1326,19 @@ async function handleSubmit(event) {
   return false;
 }
 
+// ── Availability banner ──
+function dismissBanner() {
+  const b = document.getElementById('avail-banner');
+  if (b) b.style.display = 'none';
+  document.body.classList.remove('banner-visible');
+}
+
 // ── Init on load ──
 window.addEventListener('hashchange', () => showPage(getHashPage()));
 showPage(getHashPage());
+
+// Show banner
+document.body.classList.add('banner-visible');
 </script>
 </body>
 </html>
