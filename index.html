@@ -516,14 +516,6 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
   .sec{padding:3.5rem 0;}
 }
 
-/* ══════════ AVAILABILITY BANNER ══════════ */
-:root{--banner-h:38px;}
-#avail-banner{position:fixed;top:0;left:0;right:0;z-index:250;background:linear-gradient(90deg,rgba(5,150,105,0.16),rgba(13,148,136,0.10));border-bottom:1px solid rgba(52,211,153,0.25);backdrop-filter:blur(12px);height:var(--banner-h);display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.78rem;font-weight:600;color:var(--emerald);padding:0 1rem;}
-#avail-banner-close{background:none;border:none;cursor:pointer;color:var(--dim);font-size:0.88rem;padding:0.15rem 0.45rem;border-radius:4px;transition:color 0.2s;margin-left:0.75rem;line-height:1;font-family:'Nunito Sans',sans-serif;}
-#avail-banner-close:hover{color:var(--text);background:rgba(255,255,255,0.08);}
-body.banner-visible nav{top:var(--banner-h);}
-body.banner-visible .page{padding-top:calc(64px + var(--banner-h));}
-body.banner-visible .mobile-nav{top:calc(64px + var(--banner-h));}
 
 /* ══════════ RECOMMENDATIONS ══════════ */
 .rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;margin-top:0.5rem;}
@@ -545,11 +537,6 @@ body.banner-visible .mobile-nav{top:calc(64px + var(--banner-h));}
 </head>
 <body>
 
-<!-- AVAILABILITY BANNER -->
-<div id="avail-banner">
-  <span>🟢 Engineering Manager · Director of Engineering · VP Engineering · Remote / Hybrid</span>
-  <button id="avail-banner-close" onclick="dismissBanner()" aria-label="Dismiss banner">✕</button>
-</div>
 
 <div id="progress-bar"></div>
 
@@ -599,7 +586,6 @@ body.banner-visible .mobile-nav{top:calc(64px + var(--banner-h));}
         <div class="hero-meta">
           <span class="hero-meta-item">🎓 <strong>MBA in Progress</strong> · University of Phoenix · Expected Dec 2026</span>
           <span class="hero-meta-item">📍 Everett, WA · Open to Remote / Hybrid</span>
-          <span class="hero-meta-item">🎯 <strong>Open to:</strong> Principal Engineer · Staff Engineer · Engineering Manager · Senior Engineering Manager · Director of Engineering</span>
         </div>
         <div class="btn-group">
           <button class="btn btn-primary" onclick="showPage('about')">About Me ↓</button>
@@ -1281,19 +1267,9 @@ async function handleSubmit(event) {
   return false;
 }
 
-// ── Availability banner ──
-function dismissBanner() {
-  const b = document.getElementById('avail-banner');
-  if (b) b.style.display = 'none';
-  document.body.classList.remove('banner-visible');
-}
-
 // ── Init on load ──
 window.addEventListener('hashchange', () => showPage(getHashPage()));
 showPage(getHashPage());
-
-// Show banner
-document.body.classList.add('banner-visible');
 </script>
 </body>
 </html>
