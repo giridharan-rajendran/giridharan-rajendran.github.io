@@ -502,6 +502,17 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
 .copy-btn:hover{color:var(--indigo);background:var(--indigo-bg);border-color:var(--indigo-border);}
 .copy-btn.copied{color:var(--emerald);border-color:var(--emerald-border);background:var(--emerald-bg);}
 
+/* ══ RESUME DROPDOWN ══ */
+.nav-resume-dd{position:relative;flex-shrink:0;}
+.nav-resume-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:rgba(8,6,25,0.97);backdrop-filter:blur(28px);border:1px solid var(--border2);border-radius:10px;min-width:200px;overflow:hidden;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,0.45);}
+.nav-resume-dd:hover .nav-resume-menu,.nav-resume-menu.open{display:block;}
+.nav-resume-menu a{display:flex;align-items:center;gap:0.5rem;padding:0.7rem 1rem;font-size:0.8rem;font-weight:600;color:var(--muted);text-decoration:none;transition:all 0.15s;border-bottom:1px solid var(--border);}
+.nav-resume-menu a:last-child{border-bottom:none;}
+.nav-resume-menu a:hover{color:var(--text);background:rgba(255,255,255,0.08);}
+.nav-resume-menu .rm-label{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;padding:0.18rem 0.5rem;border-radius:4px;}
+.nav-resume-menu .rm-leader{background:var(--indigo-bg);color:var(--indigo);}
+.nav-resume-menu .rm-pe{background:var(--teal-bg);color:var(--teal);}
+
 /* ══════════ RESPONSIVE ══════════ */
 @media(max-width:900px){
   .nav-inner{padding:0 1rem;}
@@ -557,7 +568,13 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
       <button class="nav-tab" onclick="showPage('education')">Education</button>
       <button class="nav-tab" onclick="showPage('contact')">Contact</button>
     </div>
-    <a href="giridharan-rajendran-resume.pdf" download class="nav-cta">⬇ Resume</a>
+    <div class="nav-resume-dd">
+      <button class="nav-cta" onclick="toggleResumeDD(event)">⬇ Resume ▾</button>
+      <div class="nav-resume-menu" id="nav-resume-menu">
+        <a href="Giridharan_Rajendran_Resume_Leader.pdf" download><span class="rm-label rm-leader">Leader / EM</span> Engineering Leader</a>
+        <a href="Giri_Resume_Principal_Engineer.pdf" download><span class="rm-label rm-pe">Principal</span> Principal Engineer</a>
+      </div>
+    </div>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </button>
@@ -593,7 +610,8 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
         <div class="btn-group">
           <button class="btn btn-primary" onclick="showPage('about')">About Me ↓</button>
           <button class="btn btn-ghost" onclick="showPage('contact')">Get in Touch</button>
-          <a href="giridharan-rajendran-resume.pdf" download class="btn btn-ghost">⬇ Resume</a>
+          <a href="Giridharan_Rajendran_Resume_Leader.pdf" download class="btn btn-ghost">⬇ Leader / EM</a>
+          <a href="Giri_Resume_Principal_Engineer.pdf" download class="btn btn-ghost">⬇ Principal Engineer</a>
         </div>
       </div>
       <div class="hero-right">
@@ -672,7 +690,8 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
         </div>
         <div style="margin-top:1rem;display:flex;gap:0.75rem;">
           <button class="btn btn-primary" onclick="showPage('contact')" style="flex:1;">✉️ Get in Touch</button>
-          <a href="giridharan-rajendran-resume.pdf" download class="btn btn-ghost" style="flex:1;">⬇ Resume</a>
+          <a href="Giridharan_Rajendran_Resume_Leader.pdf" download class="btn btn-ghost" style="flex:1;">⬇ Leader / EM</a>
+          <a href="Giri_Resume_Principal_Engineer.pdf" download class="btn btn-ghost" style="flex:1;">⬇ Principal Eng</a>
         </div>
       </div>
     </div>
@@ -1092,7 +1111,8 @@ footer .copy{width:100%;font-size:0.75rem;color:var(--dim);margin-top:1.5rem;pad
           <div class="c-row"><div class="c-icon sky2">🔗</div><div class="c-row-text"><div class="lbl">LinkedIn</div><a href="https://linkedin.com/in/giridharan-rajendran" target="_blank" rel="noopener noreferrer">linkedin.com/in/giridharan-rajendran</a></div></div>
           <div class="c-row"><div class="c-icon ind">🐙</div><div class="c-row-text"><div class="lbl">GitHub</div><a href="https://github.com/giridharan-rajendran" target="_blank" rel="noopener noreferrer">github.com/giridharan-rajendran</a></div></div>
         </div>
-        <a href="giridharan-rajendran-resume.pdf" download class="btn btn-green" style="width:100%;justify-content:center;">⬇ Download Resume (PDF)</a>
+        <a href="Giridharan_Rajendran_Resume_Leader.pdf" download class="btn btn-green" style="width:100%;justify-content:center;">⬇ Resume — Engineering Leader / EM</a>
+        <a href="Giri_Resume_Principal_Engineer.pdf" download class="btn btn-ghost" style="width:100%;justify-content:center;">⬇ Resume — Principal Engineer</a>
       </div>
     </div>
   </div></div>
@@ -1229,6 +1249,17 @@ document.addEventListener('click', (e) => {
   // Start with "Leader." already shown; begin deleting after 2.5s
   setTimeout(() => { deleting = true; tick(); }, 2500);
 })();
+
+// ── Resume dropdown ──
+function toggleResumeDD(e) {
+  e.stopPropagation();
+  const menu = document.getElementById('nav-resume-menu');
+  if (menu) menu.classList.toggle('open');
+}
+document.addEventListener('click', () => {
+  const menu = document.getElementById('nav-resume-menu');
+  if (menu) menu.classList.remove('open');
+});
 
 // ── Copy email ──
 function copyEmail(email, btn) {
