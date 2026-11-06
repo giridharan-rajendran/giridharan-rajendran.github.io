@@ -41,7 +41,7 @@ The SPA exposes seven tabbed sections, each rendered as a `<div class="page">` i
 
 | Tab          | `id`           | Contents                                                                  |
 | ------------ | -------------- | ------------------------------------------------------------------------- |
-| Home         | `home`         | Hero banner, stats stack, MBA-in-progress callout, location signal        |
+| Home         | `home`         | Hero banner, stats stack, MBA-with-distinction callout, location signal        |
 | About        | `about`        | Bio, leadership philosophy, Core Skills + Leadership Competencies bands   |
 | Experience   | `experience`   | Full 5-role career timeline back to 2006                                  |
 | Projects     | `projects`     | Featured flashcards (DevOps Copilot Hub, CSDM Check) + 4 enterprise inits |
